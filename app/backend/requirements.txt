@@ -1,0 +1,59 @@
+# ========================================
+# LICENSE TRACKER - PYTHON DEPENDENCIES
+# ========================================
+
+# Core Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Database
+SQLAlchemy==2.0.23
+pymysql==1.1.0
+cryptography==41.0.7
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.1.1
+
+# Environment Variables
+python-dotenv==1.0.0
+
+# Data Validation
+pydantic==2.5.0
+pydantic[email]==2.5.0
+
+# CORS
+python-multipart==0.0.6
+
+# OpenAI Integration (Optional)
+openai==1.3.7
+
+# PDF Generation (for reports)
+reportlab==4.0.7
+
+# Excel Export (Optional)
+openpyxl==3.1.2
+
+# HTTP Client
+httpx==0.25.2
+
+# Date/Time Utilities
+python-dateutil==2.8.2
+
+# Logging
+python-json-logger==2.0.7
+
+# Testing (Development)
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-cov==4.1.0
+
+# Code Quality (Development)
+black==23.12.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Documentation
+pydantic-settings==2.1.0
