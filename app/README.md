@@ -15,8 +15,8 @@ The AI Assistant associated within the app is very powerful. It is designed on a
 ## 📸 Screenshots
 
 ### AI Overview
-![In Context Learning Screenshot](screenshots/in context memory.png)
-![DB Query through MCP ChatBot](screenshots/Screenshot 2025-11-06 191155.png)
+![In Context Learning Screenshot](screenshots/a2.png)
+![DB Query through MCP ChatBot](screenshots/a1.png)
 
 ### Dashboard Overview
 ![Dashboard Overview Screenshot](screenshots/dashboard.png)
