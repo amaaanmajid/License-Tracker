@@ -3,26 +3,28 @@
 # File: backend/services/audit_service.py
 # ========================================
 
-from sqlalchemy.orm import Session
-import models
 import uuid
 from datetime import datetime
+
+import models
+from sqlalchemy.orm import Session
+
 
 class AuditService:
     def __init__(self, db: Session):
         self.db = db
-    
+
     def log_action(
         self,
         user_id: str,
         entity_type: str,
         entity_id: str,
         action: str,
-        details: str = None
+        details: str = None,
     ):
         """
         Log an audit entry
-        
+
         Args:
             user_id: ID of user performing action
             entity_type: Type of entity (DEVICE, LICENSE, VENDOR, etc.)
@@ -38,12 +40,12 @@ class AuditService:
                 entity_id=entity_id,
                 action=action,
                 timestamp=datetime.utcnow(),
-                details=details
+                details=details,
             )
-            
+
             self.db.add(audit_log)
             self.db.commit()
-            
+
         except Exception as e:
             print(f"Audit logging error: {e}")
             # Don't fail the main operation if audit logging fails
