@@ -5,6 +5,8 @@ async def catch_database_exceptions(request: Request, call_next):
     except Exception as e:
         logging.error(f"Database connection error: {str(e)}")
         raise HTTPException(status_code=503, detail="Database connection failed")
+
+
 import logging
 import os
 import re
