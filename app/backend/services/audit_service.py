@@ -47,6 +47,6 @@ class AuditService:
             self.db.commit()
 
         except Exception as e:
-            print(f"Audit logging error: {e}")
+            logging.error(f"Audit logging error: {str(e)}")
             # Don't fail the main operation if audit logging fails
             self.db.rollback()

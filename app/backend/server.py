@@ -1,3 +1,10 @@
+@app.middleware("http")
+async def catch_database_exceptions(request: Request, call_next):
+    try:
+        return await call_next(request)
+    except Exception as e:
+        logging.error(f"Database connection error: {str(e)}")
+        raise HTTPException(status_code=503, detail="Database connection failed")
 import logging
 import os
 import re
@@ -1178,7 +1185,7 @@ async def health_check(db: Session = Depends(get_db)):
         db.execute("SELECT 1")
         return {"status": "healthy", "database": "connected"}
     except Exception as e:
-        logging.error(f'Database health check error: {str(e)}')
+        logging.error(f"Database health check error: {str(e)}")
         raise HTTPException(status_code=503, detail=f"Database error: {str(e)}")
 
 
