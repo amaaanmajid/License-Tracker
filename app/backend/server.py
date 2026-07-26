@@ -1178,7 +1178,7 @@ async def health_check(db: Session = Depends(get_db)):
         db.execute("SELECT 1")
         return {"status": "healthy", "database": "connected"}
     except Exception as e:
-        logging.error(f'Database health check error: {str(e)}')
+        logging.error(f"Database health check error: {str(e)}")
         raise HTTPException(status_code=503, detail=f"Database error: {str(e)}")
 
 
@@ -1206,6 +1206,9 @@ async def get_device_inventory_report(
 @api_router.get("/reports/vendor-analysis")
 async def get_vendor_analysis_report(
     current_user: models.User = Depends(get_current_user), db: Session = Depends(get_db)
+@app.exception_handler(Exception)
+async def catch_all_exceptions(request: Request, exc: Exception):
+    return JSONResponse(status_code=500, content={'error': 'Internal Server Error'})
 ):
     # ✅ All roles can view reports
     service = ReportService(db)
